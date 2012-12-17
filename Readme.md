@@ -23,6 +23,12 @@
 ## Routing
   -
 
+
+## Misc
+  - Background Jobs with Sidekiq
+  - Dependency Injection with DIM
+
+
 [recommended_folder_structure]: espresso-cookbooks/big_picture/recommended_folder_structure/Readme.md
 [code_reloading]: espresso-cookbooks/big_picture/code_reloading/Readme.md
 [dev_env]: espresso-cookbooks/big_picture/dev_env/Readme.md
@@ -34,3 +40,6 @@
 [sprocket_assets]: espresso-cookbooks/views/sprocket_assets/Readme.md
 [forms]: espresso-cookbooks/views/forms/Readme.md
 [urls]: espresso-cookbooks/views/urls/Readme.md
+[sidekiq]: espresso-cookbooks/misc/sidekiq/Readme.md
+[dim]: espresso-cookbooks/misc/dim/Readme.md
+
