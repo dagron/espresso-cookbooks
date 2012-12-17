@@ -24,4 +24,4 @@
   -
 
 
-[recommended_folder_structure]: big_picture/recommended_folder_structure/Readme.md
+[recommended_folder_structure]: espresso-cookbooks/big_picture/recommended_folder_structure/Readme.md
