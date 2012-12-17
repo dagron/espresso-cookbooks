@@ -1,0 +1,27 @@
+GIT
+  remote: git://github.com/slivu/appetite.git
+  revision: c55f992f987ab5a579db92d6a60e09435642850d
+  specs:
+    appetite (0.0.9)
+      rack (~> 1.4)
+
+GIT
+  remote: git://github.com/slivu/espresso.git
+  revision: 83ab2ff777b7cecf55b627fbf7e51a462b9718f1
+  specs:
+    e (0.3.5)
+      appetite (~> 0.0.9)
+      tilt (~> 1.3)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rack (1.4.1)
+    tilt (1.3.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  appetite!
+  e!
