@@ -1,12 +1,12 @@
 **Some recipies and smaller snippets for [Espresso](http://e.github.com) **
 
 
-Big Picture
+## Big Picture
 
-Database
+## Database
 
-Testing
+## Testing
 
-Views
+## Views
 
-Routing
+## Routing
