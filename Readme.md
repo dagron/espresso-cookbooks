@@ -2,7 +2,7 @@
 
 
 ## Big Picture
-  - recommended_folder_structure
+  - [Recommended Folder Structure][recommended_folder_structure]
   - code_reloading
   - dev/test environment
   -
@@ -22,3 +22,6 @@
 
 ## Routing
   -
+
+
+[recommended_folder_structure]: big_picture/recommended_folder_structure/Readme.md
