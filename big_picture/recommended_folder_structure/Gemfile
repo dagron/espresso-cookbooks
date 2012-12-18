@@ -2,3 +2,5 @@ source "http://rubygems.org"
 
 gem 'appetite', :git => 'git://github.com/slivu/appetite.git'
 gem 'e', :git => 'git://github.com/slivu/espresso.git'
+
+gem 'class_loader'
