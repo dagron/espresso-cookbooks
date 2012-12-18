@@ -1,0 +1,11 @@
+<div>
+  <%= will_paginate @users %>
+</div>
+
+<div>
+<% @users.each do |user| %>
+  <p>
+    <%= user.id %>: username: <%= user.username %>, email: <%= user.email %>
+  </p>
+<% end %>
+</div>

@@ -47,14 +47,11 @@ class Cookbooks < Thor
   def pagination_adjust_files
     template('_templates/pagination/Readme.md', "Readme.md", :force => true)
     template("_templates/pagination/lib/ext/will_paginate.rb", "lib/ext/will_paginate.rb")
+    template("_templates/pagination/config/environment.rb", "config/environment.rb", :force => true)
 
-    append_to_file "config/environment.rb" do
-      Util.unindent(%Q{
-
-        ## will pagination
-        require 'lib/ext/will_paginate'
-      })
-    end
+    template('_templates/pagination/app/models/user.rb', "app/models/user.rb", :force => true)
+    template('_templates/pagination/app/controllers/my_app/frontend/pagination.rb', "app/controllers/my_app/frontend/pagination.rb", :force => true)
+    copy_file('_templates/pagination/view/pagination/index.erb', "view/pagination/index.erb", :force => true)
 
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
@@ -65,9 +62,6 @@ class Cookbooks < Thor
         gem 'sqlite3'
       })
     end
-
-    template('_templates/pagination/app/models/user.rb', "app/models/user.rb", :force => true)
-    template('_templates/pagination/app/controllers/frontend/pagination.rb', "app/controllers/pagination.rb", :force => true)
 
     empty_directory "db"
     run 'bundle install'

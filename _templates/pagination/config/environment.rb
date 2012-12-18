@@ -19,11 +19,11 @@ ActiveSupport::Dependencies.autoload_paths = relative_load_paths.map do |path|
   File.expand_path(path, File.dirname(__FILE__) + "/../")
 end
 require 'e'
-require 'app/controllers/my_app/frontend/pagination'
-
-require 'will_paginate'
-require 'will_paginate/active_record'
 
 ## will pagination
+require 'will_paginate'
+require 'will_paginate/active_record'
 require 'lib/ext/will_paginate'
 
+# this sux
+require 'app/controllers/my_app/frontend/pagination'
