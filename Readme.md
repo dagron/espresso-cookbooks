@@ -1,6 +1,5 @@
 **Some recipies and smaller snippets for [Espresso](http://e.github.com) **
 
-
 ## Big Picture
   - [Recommended Folder Structure][recommended_folder_structure]
   - [Code Reloading][code_reloading]
@@ -20,26 +19,32 @@
   - [Forms][forms]
   - [URL Generation][urls]
 
-## Routing
-  -
-
-
 ## Misc
-  - Background Jobs with Sidekiq
-  - Dependency Injection with DIM
+  - [Background Jobs with Sidekiq][sidekiq]
+  - [Dependency Injection with DIM][dim]
 
 
-[recommended_folder_structure]: espresso-cookbooks/big_picture/recommended_folder_structure/Readme.md
-[code_reloading]: espresso-cookbooks/big_picture/code_reloading/Readme.md
-[dev_env]: espresso-cookbooks/big_picture/dev_env/Readme.md
-[db_initialization]: espresso-cookbooks/database/db_initialization/Readme.md
-[migrations]: espresso-cookbooks/database/migrations/Readme.md
-[fast_tests]: espresso-cookbooks/testing/fast_tests/Readme.md
-[view_helpers]: espresso-cookbooks/views/view_helpers/Readme.md
-[pagination]: espresso-cookbooks/views/pagination/Readme.md
-[sprocket_assets]: espresso-cookbooks/views/sprocket_assets/Readme.md
-[forms]: espresso-cookbooks/views/forms/Readme.md
-[urls]: espresso-cookbooks/views/urls/Readme.md
-[sidekiq]: espresso-cookbooks/misc/sidekiq/Readme.md
-[dim]: espresso-cookbooks/misc/dim/Readme.md
+[recommended_folder_structure]: espresso-cookbooks/_templates/recommended_folder_structure/Readme.md
+[code_reloading]:               espresso-cookbooks/_templates/code_reloading/Readme.md
+[dev_env]:                      espresso-cookbooks/_templates/dev_env/Readme.md
+[db_initialization]:            espresso-cookbooks/_templates/db_initialization/Readme.md
+[migrations]:                   espresso-cookbooks/_templates/migrations/Readme.md
+[fast_tests]:                   espresso-cookbooks/_templates/fast_tests/Readme.md
+[view_helpers]:                 espresso-cookbooks/_templates/view_helpers/Readme.md
+[pagination]:                   espresso-cookbooks/_templates/pagination/Readme.md
+[sprocket_assets]:              espresso-cookbooks/_templates/sprocket_assets/Readme.md
+[forms]:                        espresso-cookbooks/_templates/forms/Readme.md
+[urls]:                         espresso-cookbooks/_templates/urls/Readme.md
+[sidekiq]:                      espresso-cookbooks/_templates/sidekiq/Readme.md
+[dim]:                          espresso-cookbooks/_templates/dim/Readme.md
+
+
+
+## Development:
+This project uses Thor, it regenerates all examples from a base project and makes some adjustments to each one.
+
+to generate examples run:
+    $ thor cookbooks:generate_all
+
+all examples will be in the "generated"-directory
 
