@@ -8,7 +8,7 @@
   -
 ## Database
   - [DB Initialization][db_initialization]
-  - [Migration][migrations]
+  - [Migrations][migrations]
 
 ## Testing
   - [fast tests][fast_tests]
