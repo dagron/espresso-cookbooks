@@ -1,3 +1,18 @@
+EXAMPLES = {
+  "recommended_folder_structure" => {},
+  "code_reloading"               => {},
+  "dev_env"                      => {},
+  "db_initialization"            => {},
+  "migrations"                   => {},
+  "fast_tests"                   => {},
+  "pagination"                   => {},
+  "sprocket_assets"              => {},
+  "forms"                        => {},
+  "urls"                         => {},
+  "sidekiq"                      => {},
+  "dim"                          => {},
+}
+
 class App < Thor::Group
   include Thor::Actions
   argument :app_name
@@ -18,19 +33,7 @@ end
 class Example < Thor
   include Thor::Actions
 
-  {
-    "code_reloading"    => {},
-    "dev_env"           => {},
-    "db_initialization" => {},
-    "migrations"        => {},
-    "fast_tests"        => {},
-    "pagination"        => {},
-    "sprocket_assets"   => {},
-    "forms"             => {},
-    "urls"              => {},
-    "sidekiq"           => {},
-    "dim"               => {},
-  }.each do |k, v|
+  EXAMPLES.each do |k, v|
       desc k, "#{k} example"
       define_method k do
         App.new(["#{k}"]).invoke_all
