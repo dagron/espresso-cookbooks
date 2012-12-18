@@ -6,6 +6,21 @@ It requires:
 - ruby1.9 or jruby/rubinius
 - redis-server running
 
+Put your worker files into
+    app/workers/...
+
+Adjust the $LOAD_PATH:
+    %w(app/lib app/models app/controllers app/workers)
+
+Adjust Gemfile:
+    gem 'sidekiq'
+
+Mount the Web-UI in config.ru:
+    require 'sidekiq/web'
+    map "/sidekiq" do
+      run Sidekiq::Web
+    end
+
 
 To test the worker:
     $ sh/worker
