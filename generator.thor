@@ -34,9 +34,16 @@ class Example < Thor
   include Thor::Actions
 
   EXAMPLES.each do |k, v|
-      desc k, "#{k} example"
-      define_method k do
-        App.new(["#{k}"]).invoke_all
-      end
+    desc k, "#{k} example"
+    define_method k do
+      App.new(["#{k}"]).invoke_all
     end
+  end
+
+  desc "generate_all", "(!!!) (re)create all examples"
+  def generate_all
+    EXAMPLES.keys.each do |k|
+      send(k)
+    end
+  end
 end
