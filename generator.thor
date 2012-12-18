@@ -60,8 +60,16 @@ class Cookbooks < Thor
       Util.unindent(%Q{
         ## will_paginate
         gem 'will_paginate'
+        # active-record, simplified
+        gem 'mini_record'
+        gem 'sqlite3'
       })
     end
+
+    template('_templates/pagination/app/models/user.rb', "app/models/user.rb", :force => true)
+    template('_templates/pagination/app/controllers/frontend/pagination.rb', "app/controllers/pagination.rb", :force => true)
+
+    empty_directory "db"
     run 'bundle install'
   end
 
