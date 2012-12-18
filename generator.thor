@@ -47,16 +47,29 @@ class Cookbooks < Thor
   def sidekiq_adjust_files
     template('_templates/sidekiq/Readme.md', "Readme.md", :force => true)
     template("_templates/sidekiq/sh/worker", "sh/worker")
-    template("_templates/sidekiq/app/workers/hard_worker.rb", "app/workers/hard_worker.rb")
     chmod "sh/worker", 0755
+    template("_templates/sidekiq/app/workers/hard_worker.rb", "app/workers/hard_worker.rb")
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
+
         ## A background worker
         gem 'sidekiq'
+        # Sinatra for the sidekiq UI
+        gem 'sinatra'
+        gem 'slim'
       })
     end
-
     gsub_file 'config/environment.rb', /\(app\/lib app\/models app\/controllers\)/, "(app/lib app/models app/controllers app/workers)"
+    insert_into_file "config.ru", :after => "require './app'" do
+      Util.unindent(%Q{
+
+        ## mount the sinatra UI
+        require 'sidekiq/web'
+        map "/sidekiq" do
+          run Sidekiq::Web
+        end
+      })
+    end
     inside("sh") do
       run "bundle install"
     end

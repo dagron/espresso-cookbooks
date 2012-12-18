@@ -14,6 +14,9 @@ Adjust the $LOAD_PATH:
 
 Adjust Gemfile:
     gem 'sidekiq'
+    # for UI
+    gem 'sinatra'
+    gem 'slim'
 
 Mount the Web-UI in config.ru:
     require 'sidekiq/web'
