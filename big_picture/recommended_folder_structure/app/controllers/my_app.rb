@@ -1,3 +1,0 @@
-module MyApp
-
-end
