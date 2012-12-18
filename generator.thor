@@ -44,6 +44,27 @@ class Cookbooks < Thor
     template('_templates/db_initialization/Readme.md', "Readme.md", :force => true)
   end
 
+  def pagination_adjust_files
+    template('_templates/pagination/Readme.md', "Readme.md", :force => true)
+    template("_templates/pagination/lib/ext/will_paginate.rb", "lib/ext/will_paginate.rb")
+
+    append_to_file "config/environment.rb" do
+      Util.unindent(%Q{
+
+        ## will pagination
+        require 'lib/ext/will_paginate'
+      })
+    end
+
+    append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
+      Util.unindent(%Q{
+        ## will_paginate
+        gem 'will_paginate'
+      })
+    end
+    run 'bundle install'
+  end
+
   def sidekiq_adjust_files
     template('_templates/sidekiq/Readme.md', "Readme.md", :force => true)
     template("_templates/sidekiq/sh/worker", "sh/worker")
@@ -70,9 +91,7 @@ class Cookbooks < Thor
         end
       })
     end
-    inside("sh") do
-      run "bundle install"
-    end
+    run 'bundle install'
   end
 
   desc "apply_directory_template", "moves base app to a path"

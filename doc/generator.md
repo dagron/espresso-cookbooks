@@ -1,4 +1,5 @@
 ### Thor
+- https://github.com/sid137/sinagen/blob/master/lib/sinagen.rb
 - http://guides.rubyonrails.org/generators.html
 - https://github.com/kristianmandrup/rubyproject/blob/master/lib/application.thor
 - http://blog.paracode.com/2012/05/17/building-your-tools-with-thor/
