@@ -25,5 +25,6 @@ require 'class_loader'
 
 # since we mount the module 'MyApp::Backend', which consists of several controllers, autoloading
 # will stop, when it finds the top-level constant (MyApp::Backend). we need to "preload" all
-# controllers, for them to be available. The same rule would apply for every
+# controllers, for them to be available. The same rule would apply for every top-level constant,
+# that is a namespace for other classes.
 ClassLoader.preload 'app/controllers'
