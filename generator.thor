@@ -47,7 +47,16 @@ class Cookbooks < Thor
   def sidekiq_adjust_files
     template('_templates/sidekiq/Readme.md', "Readme.md", :force => true)
     template("_templates/sidekiq/sh/worker", "sh/worker")
+    template("_templates/sidekiq/app/workers/hard_worker.rb", "app/workers/hard_worker.rb")
     chmod "sh/worker", 0755
+    append_to_file 'Gemfile', :after => "gem 'class_loader'\n"do
+      "## A background worker\ngem 'sidekiq'"
+    end
+
+    gsub_file 'config/environment.rb', /\(app\/lib app\/models app\/controllers\)/, "(app/lib app/models app/controllers app/workers)"
+    inside("sh") do
+      run "bundle install"
+    end
   end
 
   desc "apply_directory_template", "moves base app to a path"
