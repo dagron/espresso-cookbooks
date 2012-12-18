@@ -1,4 +1,4 @@
-ActiveRecord::Base.establish_connection(:adapter => "slite3", :db => "db/example.sqlite3")
+ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => "db/example.sqlite3")
 class User < ActiveRecord::Base
   col :username
   col :email
