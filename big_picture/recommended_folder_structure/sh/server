@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rerun --pattern '{Gemfile,Gemfile.lock,config.ru,*.rb,config/*,lib/**/*.rb,app/**/**/*.rb}' -- rackup
