@@ -7,7 +7,7 @@ class App < Thor::Group
   end
 
   def apply_directory_template
-    self.destination_root = "output/#{app_name}"
+    self.destination_root = "generated/#{app_name}"
     directory '_project_base', destination_root
     inside('sh') do
       run('chmod +x *')
@@ -15,10 +15,25 @@ class App < Thor::Group
   end
 end
 
-class Database < Thor::Group
+class Example < Thor
   include Thor::Actions
 
-  def generate
-    App.new(["database"]).invoke()
-  end
+  {
+    "code_reloading"    => {},
+    "dev_env"           => {},
+    "db_initialization" => {},
+    "migrations"        => {},
+    "fast_tests"        => {},
+    "pagination"        => {},
+    "sprocket_assets"   => {},
+    "forms"             => {},
+    "urls"              => {},
+    "sidekiq"           => {},
+    "dim"               => {},
+  }.each do |k, v|
+      desc k, "#{k} example"
+      define_method k do
+        App.new(["#{k}"]).invoke_all
+      end
+    end
 end
