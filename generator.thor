@@ -40,6 +40,16 @@ class Cookbooks < Thor
     template('_templates/code_reloading/Readme.md', "Readme.md", :force => true)
   end
 
+  def db_initialization_adjust_files
+    template('_templates/db_initialization/Readme.md', "Readme.md", :force => true)
+  end
+
+  def sidekiq_adjust_files
+    template('_templates/sidekiq/Readme.md', "Readme.md", :force => true)
+    template("_templates/sidekiq/sh/worker", "sh/worker")
+    chmod "sh/worker", 0755
+  end
+
   desc "apply_directory_template", "moves base app to a path"
   def apply_directory_template(app_name)
     self.destination_root = "generated/#{app_name}"
