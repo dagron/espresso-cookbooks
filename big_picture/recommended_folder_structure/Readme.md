@@ -29,6 +29,6 @@ This is more like a soft guideline for you to have a place, where you put your s
         - BigBackendController
 
 We mount those modules in config.ru to
-      '/'        => frontend
-      '/backend' => backend
 
+    '/'        => frontend
+    '/backend' => backend
