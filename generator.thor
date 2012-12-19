@@ -36,18 +36,27 @@ class Cookbooks < Thor
     end
   end
 
+
+private
+  def copy_stuff(example, files)
+    files = [files] unless files.is_a?(Array)
+    files.each do |file|
+      copy_file("_templates/#{example}/#{file}", file, :force => true)
+    end
+  end
+
   def code_reloading_adjust_files
-    template('_templates/code_reloading/Readme.md', "Readme.md", :force => true)
+    copy_stuff(:code_reloading, "Readme.md")
   end
 
   def db_initialization_adjust_files
-    template('_templates/db_initialization/Readme.md', "Readme.md", :force => true)
+    copy_stuff(:db_initialization, "Readme.md")
   end
 
   def pagination_adjust_files
-    template('_templates/pagination/Readme.md', "Readme.md", :force => true)
-    template("_templates/pagination/lib/ext/will_paginate.rb", "lib/ext/will_paginate.rb")
-    template("_templates/pagination/config/environment.rb", "config/environment.rb", :force => true)
+    copy_stuff(:pagination, "Readme.md")
+    copy_stuff(:pagination, "lib/ext/will_paginate.rb")
+    copy_stuff(:pagination, "config/environment.rb")
 
     template('_templates/pagination/app/models/user.rb', "app/models/user.rb", :force => true)
     template('_templates/pagination/app/controllers/my_app/frontend/pagination.rb', "app/controllers/my_app/frontend/pagination.rb", :force => true)
@@ -65,6 +74,12 @@ class Cookbooks < Thor
 
     empty_directory "db"
     run 'bundle install'
+  end
+
+
+  def sprocket_assets_adjust_files
+    template('_templates/pagination/Readme.md', "Readme.md", :force => true)
+
   end
 
   def sidekiq_adjust_files
