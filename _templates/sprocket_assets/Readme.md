@@ -60,3 +60,21 @@ example for application.js in js folder:
 
 # now all requests agains /assets/... are handled by sprockets middleware
 # you may need to run `rake assets:precompile` the first time...
+
+## Start the server:
+
+    $ sh/server
+## Now take a look at the results:
+    $ curl localhost:9292/assets/application.css
+
+    body {
+      padding-top: 20px;
+    }
+    .logo {
+    }
+
+
+
+    .hello{
+      color: green;
+    }

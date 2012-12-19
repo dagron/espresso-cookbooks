@@ -1,0 +1,10 @@
+require 'sinatra/sprockets/rake'
+## it gives you:
+# rake assets:clean       # Remove compiled assets
+# rake assets:precompile  # Compile all the assets named in config.assets.precompile
+
+
+## is needed for sprockets
+task :environment do
+  require './app'
+end

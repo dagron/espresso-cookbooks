@@ -80,7 +80,13 @@ protected
 
 
   def sprocket_assets_adjust_files
-    copy_stuff :sprocket_assets, "Readme.md"
+    files =[
+      "Readme.md",
+      "Rakefile",
+      "assets/stylesheets/vendor/bootstrap.css",
+      "assets/stylesheets/application.css"
+    ]
+    copy_stuff :sprocket_assets, files
 
     insert_into_file "config.ru", :after => "require './app'" do
       Util.unindent(%Q{
@@ -92,12 +98,24 @@ protected
       })
     end
 
+    append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
+      Util.unindent(%Q{
+
+        ## middleware for sprockets
+        gem 'alphasights-sinatra-sprockets', require: 'sinatra/sprockets'
+      })
+    end
+
     insert_into_file "config/environment.rb", :after => "ClassLoader.preload 'app/controllers'\n" do
       Util.unindent(%Q{
         require 'sinatra/sprockets'
         require 'ostruct'
 
-        fake_env.root = File.dirname(__FILE__)
+        ## create a fake sinatra app obj for sprockets
+        fake_env                      = OpenStruct.new
+        fake_env.settings             = OpenStruct.new
+        fake_env.settings.public_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'public'))
+        fake_env.root                 = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
         Sinatra::Sprockets.configure do |config|
           config.app = fake_env
@@ -109,17 +127,11 @@ protected
         end
       })
     end
+
     %w(stylesheets javascripts images vendor).each do |f|
       empty_directory "assets/#{f}"
     end
-
-    append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
-      Util.unindent(%Q{
-
-        ## middleware for sprockets
-        gem 'alphasights-sinatra-sprockets', require: 'sinatra/sprockets'
-      })
-    end
+    run 'bundle install'
   end
 
   def sidekiq_adjust_files
