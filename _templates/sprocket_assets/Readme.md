@@ -18,8 +18,14 @@ environment.rb
 
 
 ### now the env for sprockets...
-    fake_env      = OpenStruct.new
-    fake_env.root = File.dirname(__FILE__)
+    require 'sinatra/sprockets'
+    require 'ostruct'
+
+    ## create a fake sinatra app obj for sprockets
+    fake_env                      = OpenStruct.new
+    fake_env.settings             = OpenStruct.new
+    fake_env.settings.public_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'public'))
+    fake_env.root                 = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
     Sinatra::Sprockets.configure do |config|
       config.app = fake_env
