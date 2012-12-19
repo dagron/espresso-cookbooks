@@ -80,15 +80,18 @@ private
 
 
   def sprocket_assets_adjust_files
-    template('_templates/pagination/Readme.md', "Readme.md", :force => true)
-
+    copy_stuff :sprocket_assets, "Readme.md"
   end
 
   def sidekiq_adjust_files
-    template('_templates/sidekiq/Readme.md', "Readme.md", :force => true)
-    template("_templates/sidekiq/sh/worker", "sh/worker")
+    files =[
+      "Readme.md",
+      "sh/worker",
+      "app/workers/hard_worker.rb",
+    ]
+    copy_stuff :sidekiq, files
     chmod "sh/worker", 0755
-    template("_templates/sidekiq/app/workers/hard_worker.rb", "app/workers/hard_worker.rb")
+
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
 
