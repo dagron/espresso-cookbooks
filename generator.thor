@@ -37,7 +37,7 @@ class Cookbooks < Thor
   end
 
 
-private
+protected
   def copy_stuff(example, files)
     files = [files] unless files.is_a?(Array)
     files.each do |file|
