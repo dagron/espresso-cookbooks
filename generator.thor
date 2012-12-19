@@ -92,6 +92,27 @@ protected
       })
     end
 
+    insert_into_file "config/environment.rb", :after => "ClassLoader.preload 'app/controllers'\n" do
+      Util.unindent(%Q{
+        require 'sinatra/sprockets'
+        require 'ostruct'
+
+        fake_env.root = File.dirname(__FILE__)
+
+        Sinatra::Sprockets.configure do |config|
+          config.app = fake_env
+          config.compress = false
+
+          ['stylesheets', 'javascripts', 'images', 'vendor'].each do |dir|
+            config.append_path(File.join('assets', dir))
+          end
+        end
+      })
+    end
+    %w(stylesheets javascripts images vendor).each do |f|
+      empty_directory "assets/#{f}"
+    end
+
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
 
