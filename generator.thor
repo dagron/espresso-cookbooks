@@ -54,13 +54,15 @@ private
   end
 
   def pagination_adjust_files
-    copy_stuff(:pagination, "Readme.md")
-    copy_stuff(:pagination, "lib/ext/will_paginate.rb")
-    copy_stuff(:pagination, "config/environment.rb")
-
-    template('_templates/pagination/app/models/user.rb', "app/models/user.rb", :force => true)
-    template('_templates/pagination/app/controllers/my_app/frontend/pagination.rb', "app/controllers/my_app/frontend/pagination.rb", :force => true)
-    copy_file('_templates/pagination/view/pagination/index.erb', "view/pagination/index.erb", :force => true)
+    files = [
+      "Readme.md",
+      "lib/ext/will_paginate.rb",
+      "config/environment.rb",
+      "app/models/user.rb",
+      "app/controllers/my_app/frontend/pagination.rb",
+      "view/pagination/index.erb"
+    ]
+    copy_stuff(:pagination, files)
 
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
