@@ -81,6 +81,24 @@ protected
 
   def sprocket_assets_adjust_files
     copy_stuff :sprocket_assets, "Readme.md"
+
+    insert_into_file "config.ru", :after => "require './app'" do
+      Util.unindent(%Q{
+
+        ## assets via sinatra-sprockets
+        map '/assets' do
+          run Sinatra::Sprockets.environment
+        end
+      })
+    end
+
+    append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
+      Util.unindent(%Q{
+
+        ## middleware for sprockets
+        gem 'alphasights-sinatra-sprockets', require: 'sinatra/sprockets'
+      })
+    end
   end
 
   def sidekiq_adjust_files
