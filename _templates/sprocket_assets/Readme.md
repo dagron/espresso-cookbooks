@@ -58,13 +58,14 @@ environment.rb
 
 
 example for application.js in js folder:
+
       //= require vendor/jquery
       //= require vendor/bootstrap
       //= require_tree .
 
 
 
-#### Now all requests agains /assets/... are handled by sprockets middleware. You may need to run `rake assets:precompile` the first time...
+Now all requests agains /assets/... are handled by sprockets middleware. You may need to run `rake assets:precompile` the first time...
 
 ####  Start the server:
 
