@@ -47,14 +47,14 @@ environment.rb
 
 
 #### folder structure:
- assets
-  - stylesheets
-  - javascripts
-    - vendor/jquery.js
-    - verdor/bootstrap.js
-    application.js
-  - images
-  - vendor
+    assets
+    - stylesheets
+    - javascripts
+      - vendor/jquery.js
+      - verdor/bootstrap.js
+      application.js
+    - images
+    - vendor
 
 
 example for application.js in js folder:
@@ -64,13 +64,13 @@ example for application.js in js folder:
 
 
 
-# now all requests agains /assets/... are handled by sprockets middleware
-# you may need to run `rake assets:precompile` the first time...
+#### Now all requests agains /assets/... are handled by sprockets middleware. You may need to run `rake assets:precompile` the first time...
 
-## Start the server:
+####  Start the server:
 
     $ sh/server
-## Now take a look at the results:
+
+#### Now take a look at the results:
     $ curl localhost:9292/assets/application.css
 
     body {
