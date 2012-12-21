@@ -1,16 +1,15 @@
 EXAMPLES = {
-  "recommended_folder_structure" => {},
   "code_reloading"               => {},
-  "dev_env"                      => {},
-  "db_initialization"            => {},
+#  "dev_env"                      => {},
+#  "db_initialization"            => {},
   "migrations"                   => {},
-  "fast_tests"                   => {},
+#  "fast_tests"                   => {},
   "pagination"                   => {},
   "sprocket_assets"              => {},
-  "forms"                        => {},
-  "urls"                         => {},
+#  "forms"                        => {},
+#  "urls"                         => {},
   "sidekiq"                      => {},
-  "dim"                          => {},
+#  "dim"                          => {},
 }
 
 class Cookbooks < Thor

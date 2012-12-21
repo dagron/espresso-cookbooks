@@ -1,4 +1,4 @@
-**Some recipies and smaller snippets for [Espresso](http://e.github.com) **
+## Some recipies and smaller snippets for [Espresso](http://e.github.com)
 
 ## Big Picture
   - [Recommended Folder Structure][recommended_folder_structure]
