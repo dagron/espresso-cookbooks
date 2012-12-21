@@ -1,6 +1,7 @@
 **Some recipies and smaller snippets for [Espresso](http://e.github.com) **
 
 ## Big Picture
+  - [Recommended Folder Structure][recommended_folder_structure]
   - [Code Reloading][code_reloading]
   - [dev/test environment][dev_env] (TODO)
 
@@ -23,19 +24,19 @@
   - [Dependency Injection with DIM][dim] (TODO)
 
 
-[recommended_folder_structure]: espresso-cookbooks/tree/master/_templates/recommended_folder_structure/Readme.md
-[code_reloading]:               espresso-cookbooks/tree/master/_templates/code_reloading/Readme.md
-[dev_env]:                      espresso-cookbooks/tree/master/_templates/dev_env/Readme.md
-[db_initialization]:            espresso-cookbooks/tree/master/_templates/db_initialization/Readme.md
-[migrations]:                   espresso-cookbooks/tree/master/_templates/migrations/Readme.md
-[fast_tests]:                   espresso-cookbooks/tree/master/_templates/fast_tests/Readme.md
-[view_helpers]:                 espresso-cookbooks/tree/master/_templates/view_helpers/Readme.md
-[pagination]:                   espresso-cookbooks/tree/master/_templates/pagination/Readme.md
-[sprocket_assets]:              espresso-cookbooks/tree/master/_templates/sprocket_assets/Readme.md
-[forms]:                        espresso-cookbooks/tree/master/_templates/forms/Readme.md
-[urls]:                         espresso-cookbooks/tree/master/_templates/urls/Readme.md
-[sidekiq]:                      espresso-cookbooks/tree/master/_templates/sidekiq/Readme.md
-[dim]:                          espresso-cookbooks/tree/master/_templates/dim/Readme.md
+[recommended_folder_structure]: espresso-cookbooks/tree/master/_project_base/
+[code_reloading]:               espresso-cookbooks/tree/master/_templates/code_reloading/
+[dev_env]:                      espresso-cookbooks/tree/master/_templates/dev_env/
+[db_initialization]:            espresso-cookbooks/tree/master/_templates/db_initialization/
+[migrations]:                   espresso-cookbooks/tree/master/_templates/migrations/
+[fast_tests]:                   espresso-cookbooks/tree/master/_templates/fast_tests/
+[view_helpers]:                 espresso-cookbooks/tree/master/_templates/view_helpers/
+[pagination]:                   espresso-cookbooks/tree/master/_templates/pagination/
+[sprocket_assets]:              espresso-cookbooks/tree/master/_templates/sprocket_assets/
+[forms]:                        espresso-cookbooks/tree/master/_templates/forms/
+[urls]:                         espresso-cookbooks/tree/master/_templates/urls/
+[sidekiq]:                      espresso-cookbooks/tree/master/_templates/sidekiq/
+[dim]:                          espresso-cookbooks/tree/master/_templates/dim/
 
 
 
