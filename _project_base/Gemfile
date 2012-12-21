@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem 'appetite', :git => 'git://github.com/slivu/appetite.git'
-gem 'e', :git => 'git://github.com/slivu/espresso.git'
+gem 'e', :git => 'git://github.com/espresso/espresso.git'
 
 # alternative for activesupport/dependencies [http://apidock.com/rails/ActiveSupport/Dependencies]
 gem 'class_loader'
