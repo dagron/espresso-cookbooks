@@ -42,6 +42,7 @@ protected
   end
 
   def auth_warden_adjust_files(example)
+    pagination_adjust_files('pagination')
     copy_stuff(example, "Readme.md")
   end
 
