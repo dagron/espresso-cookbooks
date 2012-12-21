@@ -20,15 +20,7 @@ class Cookbooks < Thor
     File.join(File.dirname(__FILE__))
   end
 
-  EXAMPLES.each do |k, v|
-    desc k, "#{k} example"
-    define_method k do
-      apply_directory_template(k)
-      send "#{k}_adjust_files" if respond_to?("#{k}_adjust_files")
-    end
-  end
-
-  desc "generate_all", "(!!!) (re)create all examples"
+  desc "generate_all", "(re)create all examples"
   def generate_all
     FileUtils.rm_rf "generated"
     EXAMPLES.keys.each do |k|
@@ -38,6 +30,15 @@ class Cookbooks < Thor
 
 
 protected
+  no_tasks do
+    EXAMPLES.each do |k, v|
+      desc k, "#{k} example"
+      define_method k do
+        apply_directory_template(k)
+        send "#{k}_adjust_files" if respond_to?("#{k}_adjust_files")
+      end
+    end
+  end
   def copy_stuff(example, files)
     files = [files] unless files.is_a?(Array)
     files.each do |file|
