@@ -43,7 +43,17 @@ protected
 
   def auth_warden_adjust_files(example)
     pagination_adjust_files('pagination')
-    copy_stuff(example, "Readme.md")
+    files = [
+      "Readme.md",
+      "lib/warden.rb"
+    ]
+    copy_stuff(example, files)
+    append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
+      Util.unindent(%Q{
+        ## warden auth
+        gem 'warden'
+      })
+    end
   end
 
   def code_reloading_adjust_files(example)
