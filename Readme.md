@@ -44,7 +44,7 @@
 This project uses Thor, it regenerates all examples from a base project and makes some adjustments to each one.
 
 to generate examples run:
+
     $ thor cookbooks:generate_all
 
 all examples will be in the "generated"-directory
-
