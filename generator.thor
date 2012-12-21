@@ -29,10 +29,11 @@ protected
       desc k, "#{k} example"
       define_method k do
         apply_directory_template(k)
-        send "#{k}_adjust_files" if respond_to?("#{k}_adjust_files")
+        send("#{k}_adjust_files", k) if respond_to?("#{k}_adjust_files")
       end
     end
   end
+
   def copy_stuff(example, files)
     files = [files] unless files.is_a?(Array)
     files.each do |file|
@@ -40,19 +41,19 @@ protected
     end
   end
 
-  def auth_warden_adjust_files
-    copy_stuff(:auth_warden, "Readme.md")
+  def auth_warden_adjust_files(example)
+    copy_stuff(example, "Readme.md")
   end
 
-  def code_reloading_adjust_files
-    copy_stuff(:code_reloading, "Readme.md")
+  def code_reloading_adjust_files(example)
+    copy_stuff(example, "Readme.md")
   end
 
-  def db_initialization_adjust_files
-    copy_stuff(:db_initialization, "Readme.md")
+  def db_initialization_adjust_files(example)
+    copy_stuff(example, "Readme.md")
   end
 
-  def pagination_adjust_files
+  def pagination_adjust_files(example)
     files = [
       "Readme.md",
       "lib/ext/will_paginate.rb",
@@ -61,7 +62,7 @@ protected
       "app/controllers/my_app/frontend/pagination.rb",
       "view/pagination/index.erb"
     ]
-    copy_stuff(:pagination, files)
+    copy_stuff(example, files)
 
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
       Util.unindent(%Q{
@@ -77,14 +78,14 @@ protected
     run 'bundle install'
   end
 
-  def sprocket_assets_adjust_files
+  def sprocket_assets_adjust_files(example)
     files =[
       "Readme.md",
       "Rakefile",
       "assets/stylesheets/vendor/bootstrap.css",
       "assets/stylesheets/application.css"
     ]
-    copy_stuff :sprocket_assets, files
+    copy_stuff example, files
 
     insert_into_file "config.ru", :after => "require './app'" do
       Util.unindent(%Q{
@@ -132,13 +133,13 @@ protected
     run 'bundle install'
   end
 
-  def sidekiq_adjust_files
+  def sidekiq_adjust_files(example)
     files =[
       "Readme.md",
       "sh/worker",
       "app/workers/hard_worker.rb",
     ]
-    copy_stuff :sidekiq, files
+    copy_stuff example, files
     chmod "sh/worker", 0755
 
     append_to_file 'Gemfile', :after => "gem 'class_loader'\n" do
