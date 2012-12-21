@@ -26,4 +26,5 @@ require 'will_paginate/active_record'
 require 'lib/ext/will_paginate'
 
 # this sux
+require 'app/controllers/my_app/frontend'
 require 'app/controllers/my_app/frontend/pagination'
