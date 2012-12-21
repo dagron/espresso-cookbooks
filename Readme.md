@@ -37,6 +37,7 @@
 [urls]:                         espresso-cookbooks/tree/master/_templates/urls/
 [sidekiq]:                      espresso-cookbooks/tree/master/_templates/sidekiq/
 [dim]:                          espresso-cookbooks/tree/master/_templates/dim/
+[generator]:                    espresso-cookbooks/blob/master/generator.thor
 
 
 
@@ -48,3 +49,6 @@ to generate examples run:
     $ thor cookbooks:generate_all
 
 all examples will be in the "generated"-directory
+
+
+Take a look at the [Thor File][generator] for further inspiration.
