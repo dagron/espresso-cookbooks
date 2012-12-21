@@ -10,3 +10,8 @@ changes.
 A simple example:
 
       rerun --pattern '{Gemfile,Gemfile.lock,config.ru,*.rb,config/*,lib/**/*.rb,app/**/**/*.rb}' -- rackup
+
+
+Put this into an executable script and you're done, e.g
+
+      $ sh/server
