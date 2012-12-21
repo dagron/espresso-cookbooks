@@ -1,16 +1,10 @@
 EXAMPLES = {
   "auth_warden"                  => {},
   "code_reloading"               => {},
-#  "dev_env"                      => {},
-#  "db_initialization"            => {},
   "migrations"                   => {},
-#  "fast_tests"                   => {},
   "pagination"                   => {},
   "sprocket_assets"              => {},
-#  "forms"                        => {},
-#  "urls"                         => {},
   "sidekiq"                      => {},
-#  "dim"                          => {},
 }
 
 class Cookbooks < Thor
@@ -31,7 +25,7 @@ class Cookbooks < Thor
 
 protected
   no_tasks do
-    EXAMPLES.each do |k, v|
+    EXAMPLES.keys.sort.each do |k|
       desc k, "#{k} example"
       define_method k do
         apply_directory_template(k)
