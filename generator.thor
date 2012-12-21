@@ -1,4 +1,5 @@
 EXAMPLES = {
+  "auth_warden"                  => {},
   "code_reloading"               => {},
 #  "dev_env"                      => {},
 #  "db_initialization"            => {},
@@ -45,6 +46,10 @@ protected
     end
   end
 
+  def auth_warden_adjust_files
+    copy_stuff(:auth_warden, "Readme.md")
+  end
+
   def code_reloading_adjust_files
     copy_stuff(:code_reloading, "Readme.md")
   end
@@ -77,7 +82,6 @@ protected
     empty_directory "db"
     run 'bundle install'
   end
-
 
   def sprocket_assets_adjust_files
     files =[
