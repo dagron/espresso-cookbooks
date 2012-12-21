@@ -8,4 +8,5 @@ changes.
 
 
 A simple example:
-    rerun --pattern '{Gemfile,Gemfile.lock,config.ru,*.rb,config/*,lib/**/*.rb,app/**/**/*.rb}' -- rackup
+
+      rerun --pattern '{Gemfile,Gemfile.lock,config.ru,*.rb,config/*,lib/**/*.rb,app/**/**/*.rb}' -- rackup

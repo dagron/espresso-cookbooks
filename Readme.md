@@ -1,27 +1,26 @@
 **Some recipies and smaller snippets for [Espresso](http://e.github.com) **
 
 ## Big Picture
-  - [Recommended Folder Structure][recommended_folder_structure]
   - [Code Reloading][code_reloading]
-  - [dev/test environment][dev_env]
-  -
+  - [dev/test environment][dev_env] (TODO)
+
 ## Database
   - [DB Initialization][db_initialization]
   - [Migrations][migrations]
 
 ## Testing
-  - [fast tests][fast_tests]
+  - [fast tests][fast_tests] (TODO)
 
 ## Views
-  - [View Helpers][view_helpers]
   - [Pagination][pagination]
   - [Assets][sprocket_assets]
-  - [Forms][forms]
-  - [URL Generation][urls]
+  - [URL Generation][urls] (TODO)
+  - [View Helpers][view_helpers] (TODO)
+  - [Forms][forms] (TODO)
 
 ## Misc
   - [Background Jobs with Sidekiq][sidekiq]
-  - [Dependency Injection with DIM][dim]
+  - [Dependency Injection with DIM][dim] (TODO)
 
 
 [recommended_folder_structure]: espresso-cookbooks/tree/master/_templates/recommended_folder_structure/Readme.md
