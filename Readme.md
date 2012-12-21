@@ -6,8 +6,8 @@
   - [dev/test environment][dev_env] (TODO)
 
 ## Database
-  - [DB Initialization][db_initialization]
-  - [Migrations][migrations]
+  - [DB Initialization][db_initialization] (TODO)
+  - [Migrations][migrations] (TODO)
 
 ## Testing
   - [fast tests][fast_tests] (TODO)
