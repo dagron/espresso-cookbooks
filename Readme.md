@@ -14,7 +14,7 @@
 
 ## Views
   - [Pagination][pagination]
-  - [Assets][sprocket_assets]
+  - [Assets with Sprockets][sprocket_assets]
   - [URL Generation][urls] (TODO)
   - [View Helpers][view_helpers] (TODO)
   - [Forms][forms] (TODO)
