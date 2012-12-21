@@ -1,23 +1,27 @@
 ## Sprocket Assets
 
 Gemfile:
+
     gem 'alphasights-sinatra-sprockets', require: 'sinatra/sprockets' (a fork from sinatra-sprockets)
 
 
 
 
 config.ru:
+
     map '/assets' do
       run Sinatra::Sprockets.environment
     end
 
 
 environment.rb
+
     require 'sinatra/sprockets'
 
 
 
 ### now the env for sprockets...
+
     require 'sinatra/sprockets'
     require 'ostruct'
 
@@ -47,6 +51,7 @@ environment.rb
 
 
 #### folder structure:
+
     assets
     - stylesheets
     - javascripts
