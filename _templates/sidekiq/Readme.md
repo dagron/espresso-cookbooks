@@ -33,3 +33,6 @@ Generate some jobs:
     $ irb> 100.times do HardWorker.perform_async('bob', 5) end
 
 Watch the workers doing the work!
+
+The Web UI is available on:
+    0.0.0.0:9292/sidekiq
